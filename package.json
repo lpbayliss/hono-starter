@@ -20,6 +20,7 @@
 		"@hono/swagger-ui": "^0.5.0",
 		"@hono/trpc-server": "^0.3.4",
 		"@trpc/server": "^10.45.2",
+		"better-auth": "^1.1.21",
 		"dotenv": "^16.4.7",
 		"drizzle-orm": "^0.40.0",
 		"hono": "^4.7.2",
@@ -31,7 +32,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/node": "^20.11.17",
+		"@types/node": "^22.0.0",
 		"@types/pg": "^8.11.11",
 		"dotenv-cli": "^8.0.0",
 		"drizzle-kit": "^0.30.5",
