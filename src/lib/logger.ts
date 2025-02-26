@@ -1,0 +1,12 @@
+import { pino } from "pino";
+import env from "~/lib/env.js";
+
+const logger = pino({
+	level: env.NODE_ENV === "production" ? "info" : "debug",
+	transport:
+		env.NODE_ENV === "production"
+			? undefined
+			: { target: "pino-pretty", options: { colorize: true } }, // Pretty print in dev
+});
+
+export default logger;
