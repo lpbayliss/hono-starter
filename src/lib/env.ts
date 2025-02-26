@@ -2,13 +2,26 @@ import { z } from "zod";
 import "dotenv/config";
 
 const envSchema = z.object({
-	PORT: z.coerce.number().default(5001),
+	APP_NAME: z.string(),
 	NODE_ENV: z
-		.enum(["development", "production", "test"])
+		.enum(["development", "test", "production"])
 		.default("development"),
-	DATABASE_URL: z.string(),
+	PORT: z.string().transform(Number),
+
+	POSTGRES_USER: z.string(),
+	POSTGRES_PASSWORD: z.string(),
+	POSTGRES_DB: z.string(),
+	POSTGRES_PORT: z.string().transform(Number),
 });
 
-const env = envSchema.parse(process.env);
+const env = envSchema.safeParse(process.env);
 
-export default env;
+if (!env.success) {
+	console.error("❌ Invalid environment variables:", env.error.format());
+	throw new Error("Invalid environment variables");
+}
+
+export default {
+	...env.data,
+	DATABASE_URL: `postgresql://${env.data.POSTGRES_USER}:${env.data.POSTGRES_PASSWORD}@localhost:${env.data.POSTGRES_PORT}/${env.data.POSTGRES_DB}`,
+};

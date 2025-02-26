@@ -11,7 +11,7 @@ open http://localhost:3000
 
 - [ ] tRPC
 - [ ] Better Auth
-- [ ] Drizzle
+- [x] Drizzle
 - [ ] Websockets
 - [ ] Queues (Redis? Temporal?)
 - [/] Proper Logging
