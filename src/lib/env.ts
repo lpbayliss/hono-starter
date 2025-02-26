@@ -12,6 +12,9 @@ const envSchema = z.object({
 	POSTGRES_PASSWORD: z.string(),
 	POSTGRES_DB: z.string(),
 	POSTGRES_PORT: z.string().transform(Number),
+
+	BETTER_AUTH_SECRET: z.string(),
+	BETTER_AUTH_URL: z.string(),
 });
 
 const env = envSchema.safeParse(process.env);
