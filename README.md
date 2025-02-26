@@ -14,11 +14,11 @@ open http://localhost:3000
 - [ ] Drizzle
 - [ ] Websockets
 - [ ] Queues (Redis? Temporal?)
-- [ ] Proper Logging
+- [/] Proper Logging
 - [ ] Proper Metrics
-- [ ] Environment Variables
-- [ ] Unit Testing
-- [ ] Integration Testing
+- [x] Environment Variables
+- [x] Unit Testing
+- [/] Integration Testing
 - [ ] CI/CD
 - [ ] Commit Hooks
 - [ ] Docker + Compose

@@ -3,7 +3,9 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch index.ts",
-    "check": "biome check --write src"
+    "check": "biome check --write src",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1"
+    "tsx": "^4.7.1",
+    "vitest": "^3.0.7"
   }
 }
