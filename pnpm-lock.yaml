@@ -82,9 +82,6 @@ importers:
         specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
-      '@biomejs/biome':
-        specifier: 1.9.4
-        version: 1.9.4
       '@types/node':
         specifier: ^22.0.0
         version: 22.13.5
