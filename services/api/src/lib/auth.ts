@@ -1,9 +1,9 @@
+import { randomUUID } from "node:crypto";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { randomUUID } from "node:crypto";
 
-import { getDb } from "~/db/index.js";
 import env from "@acme/env";
+import { getDb } from "~/db/index.js";
 
 const db = getDb();
 

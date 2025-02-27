@@ -1,5 +1,5 @@
-import { pino } from "pino";
 import env from "@acme/env";
+import { pino } from "pino";
 
 const logger = pino({
 	level: env.NODE_ENV === "production" ? "info" : "debug",

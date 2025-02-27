@@ -1,5 +1,5 @@
-import { Hono } from "hono";
 import { to } from "await-to-js";
+import { Hono } from "hono";
 
 import { getDb } from "~/db/index.js";
 
