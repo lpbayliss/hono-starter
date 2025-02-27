@@ -3,7 +3,7 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
 import env from "@acme/env";
-import { getDb } from "~/db/index.js";
+import { getDb } from "@acme/db";
 
 const db = getDb();
 
