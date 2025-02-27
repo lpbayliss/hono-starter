@@ -3,7 +3,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { randomUUID } from "node:crypto";
 
 import { getDb } from "~/db/index.js";
-import env from "./env.js";
+import env from "@acme/env";
 
 const db = getDb();
 

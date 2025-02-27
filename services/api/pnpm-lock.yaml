@@ -6,29 +6,8 @@ settings:
 
 importers:
 
-  .: {}
-
-  packages/env:
+  .:
     dependencies:
-      dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
-      zod:
-        specifier: ^3.24.2
-        version: 3.24.2
-    devDependencies:
-      '@types/node':
-        specifier: ^22.0.0
-        version: 22.13.5
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
-
-  services/api:
-    dependencies:
-      '@acme/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.2)
@@ -96,6 +75,9 @@ importers:
       tsx:
         specifier: ^4.19.3
         version: 4.19.3
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
       vitest:
         specifier: ^3.0.7
         version: 3.0.7(@types/node@22.13.5)(tsx@4.19.3)

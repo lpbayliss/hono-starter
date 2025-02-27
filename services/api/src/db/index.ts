@@ -1,9 +1,9 @@
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
+import env from "@acme/env";
 
 import * as schema from "./schema.js"; // Import your schema definitions
-import env from "~/lib/env.js";
 
 // Singleton pattern for database connection
 let poolInstance: pg.Pool | null = null;

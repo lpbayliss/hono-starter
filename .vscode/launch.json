@@ -8,7 +8,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Debug API",
-			"cwd": "${workspaceFolder}",
+			"cwd": "${workspaceFolder}/services/api/",
 			"runtimeExecutable": "tsx",
 			"args": ["index.ts"],
 			"autoAttachChildProcesses": true,

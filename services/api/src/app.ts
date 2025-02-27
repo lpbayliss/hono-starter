@@ -6,10 +6,10 @@ import { logger as honoLogger } from "hono/logger";
 import { poweredBy } from "hono/powered-by";
 import { prometheus } from "@hono/prometheus";
 import { trpcServer } from "@hono/trpc-server";
+import env from "@acme/env";
 
 import { health, posts } from "~/routes/index.js";
 import { appRouter } from "~/rpc/app.js";
-import env from "~/lib/env.js";
 import logger from "~/lib/logger.js";
 
 const app = new Hono();
