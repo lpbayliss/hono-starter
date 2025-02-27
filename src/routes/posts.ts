@@ -1,9 +1,18 @@
 import { Hono } from "hono";
+import { to } from "await-to-js";
+
+import { getDb } from "~/db/index.js";
 
 const app = new Hono();
+const db = getDb();
 
-app.get("/", (c) => {
-	return c.text("Many posts");
+app.get("/", async (c) => {
+	const [error, posts] = await to(db.query.posts.findMany());
+	if (error) {
+		console.error(error.message);
+		return c.text("Error");
+	}
+	return c.json(posts);
 });
 
 app.post("/", (c) => {

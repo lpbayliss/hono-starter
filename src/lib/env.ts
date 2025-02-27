@@ -12,9 +12,13 @@ const envSchema = z.object({
 	POSTGRES_PASSWORD: z.string(),
 	POSTGRES_DB: z.string(),
 	POSTGRES_PORT: z.string().transform(Number),
+	DATABASE_URL: z.string(),
 
 	BETTER_AUTH_SECRET: z.string(),
 	BETTER_AUTH_URL: z.string(),
+
+	GITHUB_CLIENT_ID: z.string(),
+	GITHUB_CLIENT_SECRET: z.string(),
 });
 
 const env = envSchema.safeParse(process.env);
@@ -24,7 +28,4 @@ if (!env.success) {
 	throw new Error("Invalid environment variables");
 }
 
-export default {
-	...env.data,
-	DATABASE_URL: `postgresql://${env.data.POSTGRES_USER}:${env.data.POSTGRES_PASSWORD}@localhost:${env.data.POSTGRES_PORT}/${env.data.POSTGRES_DB}`,
-};
+export default env.data;

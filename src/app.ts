@@ -32,8 +32,8 @@ app.use(
 	}),
 );
 
-const startServer = async () => {
-	const server = serve(
+const startServer = () => {
+	serve(
 		{
 			fetch: app.fetch,
 			port: env.PORT,
@@ -42,27 +42,6 @@ const startServer = async () => {
 			console.log(`Server is running on http://localhost:${info.port}`);
 		},
 	);
-
-	const shutdown = async (signal: string) => {
-		logger.info(`Received ${signal}. Closing server...`);
-
-		try {
-			// Cleanup tasks... add here!
-
-			logger.info("Closing server...");
-			server.close(async () => {
-				logger.info("Server closed successfully.");
-				await new Promise((resolve) => logger.flush(resolve));
-				process.exit(0);
-			});
-		} catch (error) {
-			logger.error("Error during shutdown:", error);
-			await new Promise((resolve) => logger.flush(resolve));
-			process.exit(1);
-		}
-	};
-
-	return { server, shutdown };
 };
 
 export default app;
