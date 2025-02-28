@@ -2,7 +2,7 @@ CREATE TABLE "account" (
 	"id" uuid PRIMARY KEY NOT NULL,
 	"account_id" text NOT NULL,
 	"provider_id" text NOT NULL,
-	"user_id" text NOT NULL,
+	"user_id" uuid NOT NULL,
 	"access_token" text,
 	"refresh_token" text,
 	"id_token" text,
@@ -14,6 +14,11 @@ CREATE TABLE "account" (
 	"updated_at" timestamp NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE "posts" (
+	"id" uuid PRIMARY KEY NOT NULL,
+	"body" varchar(255) NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "session" (
 	"id" uuid PRIMARY KEY NOT NULL,
 	"expires_at" timestamp NOT NULL,
@@ -22,7 +27,7 @@ CREATE TABLE "session" (
 	"updated_at" timestamp NOT NULL,
 	"ip_address" text,
 	"user_agent" text,
-	"user_id" text NOT NULL,
+	"user_id" uuid NOT NULL,
 	CONSTRAINT "session_token_unique" UNIQUE("token")
 );
 --> statement-breakpoint

@@ -21,15 +21,25 @@ export const auth = betterAuth({
 			},
 		},
 	},
-	advanced: {
-		generateId() {
-			return randomUUID();
-		},
-	},
 	socialProviders: {
-		google: {
+		github: {
 			clientId: env.GITHUB_CLIENT_ID,
 			clientSecret: env.GITHUB_CLIENT_SECRET,
 		},
 	},
+	session: {
+		expiresIn: 60 * 60 * 24 * 7, // 7 days
+		updateAge: 60 * 60 * 24, // 1 day
+	},
+	advanced: {
+		generateId() {
+			return randomUUID();
+		},
+		cookiePrefix: "acme",
+	},
+	trustedOrigins: [env.WEB_URL],
 });
+
+export type Auth = typeof auth;
+export type Session = typeof auth.$Infer.Session.session;
+export type User = typeof auth.$Infer.Session.user;

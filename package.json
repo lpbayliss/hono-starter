@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"dev": "pnpm --parallel run dev",
 		"dev:apps": "pnpm --filter \"./apps/**\" run dev",
 		"dev:services": "pnpm --filter \"./services/**\" run dev",
 		"biome:check": "biome check .",

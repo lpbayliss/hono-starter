@@ -14,9 +14,15 @@ importers:
 
   apps/web:
     dependencies:
+      '@acme/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
       '@tailwindcss/vite':
         specifier: ^4.0.9
         version: 4.0.9(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3))
+      better-auth:
+        specifier: ^1.1.21
+        version: 1.1.21
       react:
         specifier: ^19.0.0
         version: 19.0.0
