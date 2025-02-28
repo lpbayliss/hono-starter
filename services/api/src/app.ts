@@ -41,7 +41,8 @@ app.on(["POST", "GET"], "/api/auth/*", (c) => {
 app.use("/api/*", cors());
 app.route("/api/health", health);
 app.route("/api/posts", posts);
-app.use("/trpc/*", trpc);
+
+app.use("/api/trpc/*", trpc);
 
 const startServer = () => {
 	serve(

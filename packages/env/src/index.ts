@@ -8,6 +8,7 @@ const envSchema = z.object({
 		.default("development"),
 	PORT: z.string().transform(Number),
 	WEB_URL: z.string(),
+	API_URL: z.string(),
 
 	POSTGRES_USER: z.string(),
 	POSTGRES_PASSWORD: z.string(),
