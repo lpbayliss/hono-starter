@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite';
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
@@ -10,5 +11,13 @@ export default defineConfig({
       '/api': 'http://localhost:5001',
     },
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    tailwindcss(),
+    TanStackRouterVite({
+      target: 'react',
+      autoCodeSplitting: true,
+      generatedRouteTree: './src/route-tree.gen.ts',
+    }),
+    react(),
+  ],
 });
