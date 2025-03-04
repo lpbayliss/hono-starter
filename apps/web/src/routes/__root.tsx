@@ -3,8 +3,21 @@ import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClientProvider } from '@tanstack/react-query';
 
-import { queryClient } from '../lib/trpc';
+import { queryClient, trpc } from '../lib/trpc';
 import { authClient } from '../lib/auth-client';
+import { useSubscription } from '@trpc/tanstack-react-query';
+
+const TickerComponent = () => {
+  useSubscription(
+    trpc.ticker.subscriptionOptions(void 0, {
+      onData(data) {
+        console.log('data', data);
+      },
+    }),
+  );
+
+  return <div>Ticker?</div>;
+};
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -47,6 +60,7 @@ function RootComponent() {
       <div>Hello "__root"!</div>
       <QueryClientProvider client={queryClient}>
         <Outlet />
+        <TickerComponent />
         <TanStackRouterDevtools />
         <ReactQueryDevtools />
       </QueryClientProvider>
